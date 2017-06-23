@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Todo
+Icon="todo.png"
+Exec="bin/todo"
+Comment=
+Categories=
+Terminal=false

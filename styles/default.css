@@ -1,0 +1,112 @@
+/*************GENERAL*************/
+window {
+    background: linear-gradient(0deg, #6449B7, #534B91);
+}
+
+headerbar {
+    background: #F3E5F0;
+    border: none;
+}
+
+headerbar button {
+    background: linear-gradient(90deg, #A454F9, #D64ADF);
+    border: 1px solid #964CF9;
+    box-shadow: 0 2px 3px #E0C5E8;
+    color: #FFF;
+    text-shadow: none;
+    text-decoration: none;
+}
+
+/*************BUTTON*************/
+button {
+    box-shadow: none;
+    text-shadow: none;
+}
+
+#button_light {
+    background: #4B619D;
+    border: none;
+}
+
+#button_blue {
+  background: linear-gradient(90deg, #3280FA, #6AA2FB);
+  border: 1px solid #23BBB1;
+  color: #FFF;
+}
+
+#button_info:focus {
+  background: #23BBB1;
+}
+
+#button_red {
+  background: #D8495F;
+  border: 1px solid #C85465;
+  color: #FFF;
+}
+
+#button_red:focus {
+  background: #C85465;
+}
+
+/*************ALERT*************/
+#alert_normal {
+  padding: 10px;
+  border: none;
+}
+
+/*************ITEM*************/
+#todo_item_normal {
+  background: linear-gradient(90deg, #A454F9, #D64ADF);
+  color: #FFF;
+  box-shadow: 0 2px 5px #4B5091;
+  border: none;
+  border-radius: 3px;
+}
+
+#todo_item_done {
+  background: linear-gradient(-10deg, #FADFDB, #FBEBE1);
+  color: #A8B4D3;
+  box-shadow: 0 2px 5px #4B5091;
+  border: none;
+  border-radius: 3px;
+}
+
+#todo_item_important {
+  background: linear-gradient(-10deg, #FE9185, #FE7B84, #FE5281);
+  color: #FFF;
+  box-shadow: 0 2px 5px #4B5091;
+  border: none;
+  border-radius: 3px;
+}
+
+/*************INPUT*************/
+#title, #title:focus, #title:hover {
+    box-shadow: none;
+    border: none;
+    border-style: none;
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 4px 4px 0 0;
+}
+
+#description {
+    padding: 10px;
+    padding-top: 0;
+    border-radius: 0 0 4px 4px;
+}
+
+#new_data {
+  box-shadow: 0 2px 5px #4B5091;
+  border: none;
+  background: #FFF;
+  border-radius: 4px 4px 4px 4px;
+}
+
+/*************LABEL*************/
+#is_done_label {
+    color: #FFF;
+}
+
+#is_important_label {
+    color: #FFF;
+}
