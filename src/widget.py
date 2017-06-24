@@ -151,7 +151,11 @@ class Input(Widget):
 
     def set_text(self, value: str):
         """Set new value in input"""
-        self._widget.set_text(value)
+        if value is not None:
+            if self._multi_line:
+                self._widget.get_buffer().set_text(value)
+            else:
+                self._widget.set_text(value)
 
     def get_text(self):
         """Get input value"""
@@ -193,7 +197,14 @@ class Switch(Widget):
 
     def get_value(self):
         """Get switch value."""
-        return self._widget.get_active()
+        if self._widget.get_active() == 1:
+            return True
+        return False
+
+    def set_value(self, value):
+        """Set switch value."""
+        if value is not None:
+            self._widget.set_active(1 if value is True else 0)
 
 
 class Label(Widget):

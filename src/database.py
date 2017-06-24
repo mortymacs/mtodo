@@ -32,11 +32,11 @@ class Database:
     def create_tables(self):
         """Create required tables"""
         self._cur.execute("CREATE TABLE todo_items("
-                          "id            INT   PRIMARY KEY,"
-                          "title         TEXT  NOT NULL,"
-                          "description   TEXT  NOT NULL,"
-                          "is_done       INT   NOT NULL,"
-                          "is_important  INT   NOT NULL"
+                          "todo_id       INTEGER   PRIMARY KEY AUTOINCREMENT,"
+                          "title         TEXT      NOT NULL,"
+                          "description   TEXT      NOT NULL,"
+                          "is_done       INTEGER   NOT NULL,"
+                          "is_important  INTEGER   NOT NULL"
                           ")")
         self._con.commit()
 
@@ -50,7 +50,7 @@ class Database:
             return False
 
         try:
-            self._cur.execute("SELECT * FROM todo_items WHERE ?", (where, ))
+            self._cur.execute("SELECT * FROM todo_items WHERE {}".format(where))
         except sqlite.OperationalError:
             print("Database fetch item failed.")
             return None
@@ -62,12 +62,29 @@ class Database:
         if not self.check():
             return False
 
-        is_done = 1 if is_done is True else 0
-        is_important = 1 if is_important is True else 0
-
         self._cur.execute("INSERT INTO todo_items "
                           "(title, description, is_done, is_important) "
                           "VALUES "
                           "(?, ?, ?, ?)", (title, description, is_done, is_important))
+        self._con.commit()
+        return True
+
+    def update_item(self, todo_id: int, title: str, description: str, is_done: bool, is_important: bool):
+        """Insert new item in db"""
+        if not self.check():
+            return False
+
+        self._cur.execute("UPDATE todo_items SET "
+                          "title=?, description=?, is_done=?, is_important=? "
+                          "WHERE todo_id=?", (title, description, is_done, is_important, todo_id))
+        self._con.commit()
+        return True
+
+    def delete_item(self, todo_id: int):
+        """Delete item in db"""
+        if not self.check():
+            return False
+
+        self._cur.execute("DELETE FROM todo_items WHERE todo_id=?", (todo_id,))
         self._con.commit()
         return True
