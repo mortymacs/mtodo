@@ -42,10 +42,10 @@ def has_all_access(path):
     return False
 
 
-def create_empty_db_file(db_name):
+def create_empty_db_file(path: str, db_name: str):
     """Create empty database in user home directory"""
     try:
-        open(os.path.join(home_dir(), db_name), "w").close()
+        open(os.path.join(path, db_name), "w").close()
         return True
     except PermissionError:
         print("Could not create new db file.")
