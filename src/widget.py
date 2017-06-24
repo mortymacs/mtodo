@@ -25,11 +25,12 @@ class Widget(metaclass=ABCMeta):
 class HeaderBar(Widget):
     """Draw header for window"""
 
-    def __init__(self, title: str, buttons: dict):
+    def __init__(self, title: str, subtitle: str, buttons: dict):
         """Initialize HeaderBar class"""
         self._widget = Gtk.HeaderBar()
         self._widget.set_show_close_button(True)
         self._widget.props.title = title
+        self._widget.set_subtitle(subtitle)
         if buttons:
             for button, position in buttons.items():
                 if position == "left":
@@ -41,15 +42,16 @@ class HeaderBar(Widget):
 class Window(Gtk.Window):
     """Draw window form"""
 
-    def __init__(self, name: str, title: str, width: int, height: int, header_buttons: dict, is_parent: bool):
+    def __init__(self, name: str, title: str, subtitle: str, width: int, height: int, header_buttons: dict, is_parent: bool):
         """Initialize Window class"""
         super(Window, self).__init__(title=title)
         self._name = name
         self._title = title
+        self._subtitle = subtitle
         self._width = width
         self._height = height
         if header_buttons:
-            self._header = HeaderBar(self._title, header_buttons)
+            self._header = HeaderBar(self._title, self._subtitle, header_buttons)
             self.set_titlebar(self._header.render)
         else:
             self._header = None

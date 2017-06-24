@@ -31,7 +31,7 @@ class Interface:
         is_done_btn = widget.Button("button_light", "0")
         is_done_btn.on_click(self.__action.all_items, *(self, "show"))
         self._is_done_btn = is_done_btn
-        main_window = widget.Window("Main", "Todo", 500, 400, {add_new_btn: "left", is_done_btn: "left"}, True)
+        main_window = widget.Window("Main", "MTodo", None, 500, 400, {add_new_btn: "left", is_done_btn: "left"}, True)
         self.__windows.update({"main_window": main_window})
         add_new_btn.on_click(self.__action.add_item, *(self, "new"))
         self.refresh(main_window)
@@ -89,14 +89,16 @@ class Interface:
 
     def todo_item(self, todo_id=None, title=None, description=None, is_done=None, is_important=None):
         """New item window."""
+        window_subtitle = "New Item"
         save_btn = widget.Button("button_blue", "Save")
         header_btns = {save_btn: "left"}
         if todo_id is not None:
             del_btn = widget.Button("button_red", "Delete")
             del_btn.on_click(self.__action.del_item, *(self, "del", todo_id))
-            header_btns.update({del_btn: "right"})
-            
-        window = widget.Window("Main", "Todo - New Item", 500, 480, header_btns, False)
+            header_btns.update({del_btn: "left"})
+            window_subtitle = "Edit Item"
+
+        window = widget.Window("Main", "MTodo", window_subtitle, 500, 480, header_btns, False)
         self.__windows["todo_item"] = window
         box = widget.Box("new_data", True)
         switch_box = widget.Box("switch_data", True)
