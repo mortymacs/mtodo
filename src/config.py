@@ -60,7 +60,7 @@ class Config:
         with open(lib.join_path(self.project_dir, self._files["config"]), "r") as f:
             for line in f:
                 if line.startswith("style"):
-                    return line[6:]
+                    return line[6:].strip()
 
     @property
     def software_style_file(self):
