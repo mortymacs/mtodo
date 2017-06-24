@@ -64,7 +64,7 @@ button {
 }
 
 #todo_item_done {
-  background: linear-gradient(-10deg, #FADFDB, #FBEBE1);
+  background: linear-gradient(-10deg, #5266A1, #516294);
   color: #A8B4D3;
   box-shadow: 0 2px 5px #4B5091;
   border: none;
