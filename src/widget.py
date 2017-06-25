@@ -133,6 +133,7 @@ class IconButton(Widget):
 
 class Input(Widget):
     """Draw input"""
+    _is_modified = False
 
     def __init__(self, name: str, placeholder: str, multi_line: bool):
         """Initialize Input class"""
@@ -143,6 +144,9 @@ class Input(Widget):
             self._widget = Gtk.TextView()
             self._widget.set_wrap_mode(Gtk.WrapMode.WORD_CHAR)
             self._widget.set_size_request(400, 219)
+            #placeholder
+            self._widget.connect("focus-in-event", self._in_focus)
+            self._widget.connect("focus-out-event", self._out_focus)
             self._widget.get_buffer().set_text(self._placeholder)
         else:
             self._widget = Gtk.Entry()
@@ -150,6 +154,16 @@ class Input(Widget):
             self._widget.set_placeholder_text(self._placeholder)
 
         self._widget.set_name(self._name)
+
+    def _in_focus(self, widget, _):
+        """When focused in input."""
+        if self.get_text() == self._placeholder:
+            self.set_text("")
+
+    def _out_focus(self, widget, _):
+        """When focused out of input."""
+        if self.get_text() == "":
+            self.set_text(self._placeholder)
 
     def set_text(self, value: str):
         """Set new value in input"""
