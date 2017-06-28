@@ -8,7 +8,7 @@ class Config:
     __instance = None
     _home_dir = None
     _project_dir = ".mtodo"
-    _files = {"config": ".mtodo", "database": ".mtodo.db"}
+    _files = {"config": "mtodo", "database": "mtodo.db"}
     
     def __init__(self):
         """Initialize Config class."""
@@ -39,7 +39,7 @@ class Config:
         
         # Check config file
         if not lib.is_exists(project_dir, self._files["config"]):
-            if not lib.create_file_with_content(project_dir, self._files["config"], "style=default"):
+            if not lib.create_file_with_content(project_dir, self._files["config"], "style=default\ndark=true"):
                 lib.error("Could'nt create config file in the project({}) directory.".format(project_dir))
                 lib.exit_software(1)
 
@@ -73,6 +73,14 @@ class Config:
         if lib.is_exists(path1):
             return path1
         return path2
+
+    @property
+    def software_is_dark_style(self):
+        """Get software style name from config file."""
+        with open(lib.join_path(self.project_dir, self._files["config"]), "r") as f:
+            for line in f:
+                if line.startswith("dark"):
+                    return line[5:].strip()
 
     @property
     def database_path(self):

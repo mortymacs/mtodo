@@ -168,3 +168,7 @@ class Interface:
             style,
             Gtk.STYLE_PROVIDER_PRIORITY_USER
         )
+
+        if self.__config.software_is_dark_style == "true":
+            settings = Gtk.Settings.get_default()
+            settings.set_property("gtk-application-prefer-dark-theme", True)
