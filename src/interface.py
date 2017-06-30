@@ -9,6 +9,8 @@ from database import Database
 from config import Config
 from action import Action
 
+DEFAULT_WIDTH = 500
+
 
 class Interface:
     """Interface class."""
@@ -31,7 +33,8 @@ class Interface:
         is_done_btn = widget.Button("button_light", "0")
         is_done_btn.on_click(self.__action.all_items, *(self, "show"))
         self._is_done_btn = is_done_btn
-        main_window = widget.Window("Main", "MTodo", None, 500, 400, {add_new_btn: "left", is_done_btn: "left"}, True)
+        main_window = widget.Window("Main", "MTodo", None, DEFAULT_WIDTH, 400, {add_new_btn: "left", is_done_btn: "left"}, True)
+        main_window.on_resize(self.__action.reload_items, *(self, "refresh"))
         self.__windows.update({"main_window": main_window})
         add_new_btn.on_click(self.__action.add_item, *(self, "new"))
         self.refresh(main_window)
@@ -45,7 +48,7 @@ class Interface:
         """Return show_all mode."""
         return self._show_all
 
-    def refresh(self, window):
+    def refresh(self, window, win_width=DEFAULT_WIDTH):
         """Refresh main window widgets and objects."""
         is_done_rows = self.__database.select_items("is_done=1")
         if self._show_all is False:
@@ -72,7 +75,12 @@ class Interface:
                 elif item["is_done"] == 1:
                     name = "todo_item_done"
 
-                item_button = widget.BigButton(name, "<big><b>{}</b></big>\n{}".format(item["title"], item["description"]))
+                if item["description"] and len(item["description"]) > int(win_width/10):
+                    description = item["description"].replace('\n', '')[:int(win_width/10)] + "....."
+                else:
+                    description = item["description"].replace('\n', '')
+
+                item_button = widget.BigButton(name, "<big><b>{}</b></big>\n{}".format(item["title"], description))
                 item_button.on_click(self.__action.edit_item, *(self, "edit",
                                                                 item["todo_id"],
                                                                 item["title"],

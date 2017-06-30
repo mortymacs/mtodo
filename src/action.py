@@ -59,3 +59,8 @@ class Action:
             else:
                 interface.set_show_all_mode(True)
                 interface.refresh(interface.get_window("main_window"))
+
+    def reload_items(self, window, event, interface, action_type):
+        """Reload items when main window resized."""
+        if action_type == "refresh" and window._width < event.width:
+            interface.refresh(interface.get_window("main_window"), event.width)

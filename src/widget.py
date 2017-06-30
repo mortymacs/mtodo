@@ -73,6 +73,9 @@ class Window(Gtk.Window):
         if self._is_parent:
             self.connect("delete-event", Gtk.main_quit)
 
+    def on_resize(self, method, *args):
+        self.connect("configure-event", method, *args)
+
     def join(self, obj: object):
         """Add object into window"""
         if hasattr(obj, "render"):
