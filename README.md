@@ -19,8 +19,8 @@ Desktop file (save to ~/.local/share/applications/mtodo.desktop):
 Version=1.0
 Type=Application
 Name=MTodo
-Icon="/opt/mtodo/mtodo.png"
-Exec="/opt/mtodo/bin/mtodo"
+Icon=/opt/mtodo/mtodo.png
+Exec=/opt/mtodo/bin/mtodo
 Comment=Simple Todo management
 Categories=utility
 Terminal=false
