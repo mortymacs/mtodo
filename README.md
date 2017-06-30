@@ -20,3 +20,6 @@ Please create issues on Github to report bugs, send feature requests and so on. 
 
 <h3>License:</h3>
 GNU GENERAL PUBLIC LICENSE Version 3 (GNU GPLv3)
+<br>
+<strong>Icon owner:<strong> http://laurareen.com/ <br>
+<strong>Icon license:</strong> https://creativecommons.org/licenses/by/3.0/
