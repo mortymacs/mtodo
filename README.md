@@ -4,14 +4,19 @@
      <img src="screenshot.png">
 </div>
 
-**Under Construction**
+##Install
+###Ubuntu PPA:
+```
+coming soon
+```
 
-Features (not implemented yet):
-* Support rich text
-* Auto save
-* Import/export
-* Distribution packages
-* Integration with other services
-* Reminder
-* Tray icon
-* Support extensions
+###Arch AUR:
+```
+coming soon
+```
+
+##Contribute:
+Please create issues on Github to report bugs, send feature requests and so on. If you've developed good git commits after forking on Github, then please create pull requests in order to request a review and merge you commits.
+
+##License:
+GNU GENERAL PUBLIC LICENSE Version 3 (GNU GPLv3)
