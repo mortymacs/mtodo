@@ -5,14 +5,25 @@
 </div>
 
 <h3>Install</h3>
-<h4>Ubuntu PPA:</h4>
+
 ```
-coming soon
+$ wget https://github.com/Mortezaipo/MTodo/archive/v1.0.0.tar.gz
+$ mkdir /opt/mtodo/ && tar xzf v1.0.0.tar.gz -C /opt/ --strip-components 1
+$ /opt/mtodo/bin/mtodo
 ```
 
-<h4>Arch AUR:</h4>
+Desktop file (save to ~/.local/share/applications/mtodo.desktop):
+
 ```
-coming soon
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=MTodo
+Icon="/opt/mtodo/mtodo.png"
+Exec="/opt/mtodo/bin/mtodo"
+Comment=Simple Todo management
+Categories=utility
+Terminal=false
 ```
 
 <h3>Contribute:</h3>
