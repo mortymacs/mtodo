@@ -4,19 +4,19 @@
      <img src="screenshot.png">
 </div>
 
-##Install
-###Ubuntu PPA:
+<h3>Install</h3>
+<h4>Ubuntu PPA:</h4>
 ```
 coming soon
 ```
 
-###Arch AUR:
+<h4>Arch AUR:</h4>
 ```
 coming soon
 ```
 
-##Contribute:
+<h3>Contribute:</h3>
 Please create issues on Github to report bugs, send feature requests and so on. If you've developed good git commits after forking on Github, then please create pull requests in order to request a review and merge you commits.
 
-##License:
+<h3>License:</h3>
 GNU GENERAL PUBLIC LICENSE Version 3 (GNU GPLv3)
