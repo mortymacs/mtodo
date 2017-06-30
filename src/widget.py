@@ -74,6 +74,7 @@ class Window(Gtk.Window):
             self.connect("delete-event", Gtk.main_quit)
 
     def on_resize(self, method, *args):
+        """Call method on window resize."""
         self.connect("configure-event", method, *args)
 
     def set_icon(self, icon_path: str):
