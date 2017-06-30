@@ -39,7 +39,7 @@ class Config:
         
         # Check config file
         if not lib.is_exists(project_dir, self._files["config"]):
-            if not lib.create_file_with_content(project_dir, self._files["config"], "style=default\ndark=true"):
+            if not lib.create_file_with_content(project_dir, self._files["config"], "style=default\ndark=false"):
                 lib.error("Could'nt create config file in the project({}) directory.".format(project_dir))
                 lib.exit_software(1)
 
