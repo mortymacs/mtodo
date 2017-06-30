@@ -76,6 +76,10 @@ class Window(Gtk.Window):
     def on_resize(self, method, *args):
         self.connect("configure-event", method, *args)
 
+    def set_icon(self, icon_path: str):
+        """Set icon to the main window."""
+        self.set_default_icon_from_file(icon_path)
+        
     def join(self, obj: object):
         """Add object into window"""
         if hasattr(obj, "render"):

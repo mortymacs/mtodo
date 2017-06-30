@@ -75,6 +75,14 @@ class Config:
         return path2
 
     @property
+    def software_icon_file(self):
+        """Return software icon file."""
+        icon_path = lib.join_path(lib.base_dir(), "mtodo.png")
+
+        if lib.is_exists(icon_path):
+            return icon_path
+
+    @property
     def software_is_dark_style(self):
         """Get software style name from config file."""
         with open(lib.join_path(self.project_dir, self._files["config"]), "r") as f:

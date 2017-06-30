@@ -34,6 +34,7 @@ class Interface:
         is_done_btn.on_click(self.__action.all_items, *(self, "show"))
         self._is_done_btn = is_done_btn
         main_window = widget.Window("Main", "MTodo", None, DEFAULT_WIDTH, 400, {add_new_btn: "left", is_done_btn: "left"}, True)
+        main_window.set_icon(self.__config.software_icon_file)
         main_window.on_resize(self.__action.reload_items, *(self, "refresh"))
         self.__windows.update({"main_window": main_window})
         add_new_btn.on_click(self.__action.add_item, *(self, "new"))
