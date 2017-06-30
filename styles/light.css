@@ -5,6 +5,7 @@ window {
 
 headerbar {
     background: #FCFAE4;
+    color: #333;
     border: none;
 }
 
@@ -28,8 +29,7 @@ button {
 }
 
 #button_blue {
-  background: linear-gradient(90deg, #3280FA, #6AA2FB);
-  border: 1px solid #23BBB1;
+  background: #5A7ABF;
   color: #FFF;
 }
 
@@ -38,8 +38,7 @@ button {
 }
 
 #button_red {
-  background: #D8495F;
-  border: 1px solid #C85465;
+  background: #BF5A8E;
   color: #FFF;
 }
 
@@ -92,7 +91,6 @@ button {
 }
 
 #new_data {
-  box-shadow: 0 2px 5px #4B5091;
   border: none;
   background: #FFF;
   border-radius: 4px 4px 4px 4px;
@@ -100,9 +98,9 @@ button {
 
 /*************LABEL*************/
 #is_done_label {
-    color: #FFF;
+    color: #333;
 }
 
 #is_important_label {
-    color: #FFF;
+    color: #333;
 }
