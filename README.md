@@ -8,7 +8,7 @@
 
 ```
 $ wget https://github.com/Mortezaipo/MTodo/archive/v1.0.0.tar.gz
-$ mkdir /opt/mtodo/ && tar xzf v1.0.0.tar.gz -C /opt/ --strip-components 1
+$ mkdir /opt/mtodo/ && tar xzf v1.0.0.tar.gz -C /opt/mtodo/ --strip-components 1
 $ /opt/mtodo/bin/mtodo
 ```
 
