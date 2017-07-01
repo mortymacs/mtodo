@@ -26,6 +26,9 @@ Categories=utility
 Terminal=false
 ```
 
+<h3>Document:</h3>
+Please check the <a href="https://github.com/Mortezaipo/MTodo/wiki">wiki</a> page.
+
 <h3>Contribute:</h3>
 Please create issues on Github to report bugs, send feature requests and so on. If you've developed good git commits after forking on Github, then please create pull requests in order to request a review and merge you commits.
 
