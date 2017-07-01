@@ -4,7 +4,7 @@
      <img src="screenshot.png">
 </div>
 
-<h3>Install</h3>
+<h3>Install:</h3>
 
 ```
 $ wget https://github.com/Mortezaipo/MTodo/archive/v1.0.0.tar.gz
