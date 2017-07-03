@@ -45,7 +45,7 @@ class Config:
 
         # Check database file
         if not lib.is_exists(project_dir, self._files["database"]):
-            if not lib.create_empty_db_file(project_dir, ".mtodo.db"):
+            if not lib.create_empty_db_file(project_dir, self._files["database"]):
                 lib.error("Couldn't create empty database in the project({}) directory.".format(project))
                 lib.exit_software(1)
 
