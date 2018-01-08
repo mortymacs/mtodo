@@ -4,7 +4,7 @@
      <img src="screenshot.png">
 </div>
 
-<h3>Install:</h3>
+### Install
 
 ```
 $ wget https://github.com/Mortezaipo/MTodo/archive/v1.0.0.tar.gz
@@ -26,14 +26,32 @@ Categories=utility
 Terminal=false
 ```
 
-<h3>Document:</h3>
+### Document
 Please check the <a href="https://github.com/Mortezaipo/MTodo/wiki">wiki</a> page.
 
-<h3>Contribute:</h3>
+### Next Versions
+In the next version, these features will be implemented:
+* Multi-level sub tasks
+* Multi-level sub projects
+* Notifications (API invoke)
+* Intuitive dates
+* Support cron jobs
+* Reminders
+* Integrate with other systems
+* Set priorities
+* Set color on tasks, projects and label
+* Markdown support
+* Comments on tasks
+* Labels and filters
+* Media support
+* GTK custom themes
+
+### Contribute
 Please create issues on Github to report bugs, send feature requests and so on. If you've developed good git commits after forking on Github, then please create pull requests in order to request a review and merge you commits.
 
-<h3>License:</h3>
+### License
 GNU GENERAL PUBLIC LICENSE Version 3 (GNU GPLv3)
+
 <br>
 <strong>Icon owner:<strong> http://laurareen.com/ <br>
 <strong>Icon license:</strong> https://creativecommons.org/licenses/by/3.0/
