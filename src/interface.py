@@ -73,7 +73,7 @@ class Interface:
                 name = "todo_item_normal"
                 if item["is_important"] == 1:
                     name = "todo_item_important"
-                elif item["is_done"] == 1:
+                if item["is_done"] == 1:
                     name = "todo_item_done"
 
                 if item["description"] and len(item["description"]) > int(win_width/10):
@@ -122,7 +122,7 @@ class Interface:
         is_done_switch.set_value(is_done)
         is_done_label = widget.Label("is_done_label", "Is done")
         is_done_box = widget.Box("is_done_data", False)
-        
+
         is_important_switch = widget.Switch("is_important")
         is_important_switch.set_value(is_important)
         is_important_label = widget.Label("is_important_label", "Is Important")
