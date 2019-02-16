@@ -1,0 +1,108 @@
+/*************GENERAL*************/
+window {
+    background: #2A1F54;
+}
+
+headerbar {
+    background: #E3E6F8;
+    color: #333;
+    border: none;
+}
+
+headerbar button {
+    background: #3A8BBB;
+    border: none;
+    color: #FFF;
+    text-shadow: none;
+    text-decoration: none;
+}
+
+/*************BUTTON*************/
+button {
+    box-shadow: none;
+    text-shadow: none;
+}
+
+#button_light {
+    background: #4B619D;
+    border: none;
+}
+
+#button_blue {
+  background: #3A8BBB;
+  border: none;
+  color: #FFF;
+}
+
+#button_info:focus {
+  background: #23BBB1;
+}
+
+#button_red {
+  background: #D8495F;
+  border: 1px solid #C85465;
+  color: #FFF;
+}
+
+#button_red:focus {
+  background: #C85465;
+}
+
+/*************ALERT*************/
+#alert_normal {
+  padding: 10px;
+  border: none;
+}
+
+/*************ITEM*************/
+#todo_item_normal {
+  background: #6364B2;
+  color: #FFF;
+  border: none;
+  border-radius: 3px;
+}
+
+#todo_item_done {
+  background: linear-gradient(-10deg, #5266A1, #516294);
+  color: #A8B4D3;
+  border: none;
+  border-radius: 3px;
+}
+
+#todo_item_important {
+  background: #E2346D;
+  color: #FFF;
+  border: none;
+  border-radius: 3px;
+}
+
+/*************INPUT*************/
+#title, #title:focus, #title:hover {
+    box-shadow: none;
+    border: none;
+    border-style: none;
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 4px 4px 0 0;
+}
+
+#description {
+    padding: 10px;
+    padding-top: 0;
+    border-radius: 0 0 4px 4px;
+}
+
+#new_data {
+  border: none;
+  background: #FFF;
+  border-radius: 4px 4px 4px 4px;
+}
+
+/*************LABEL*************/
+#is_done_label {
+    color: #FFF;
+}
+
+#is_important_label {
+    color: #FFF;
+}
