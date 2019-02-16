@@ -108,9 +108,9 @@ class Config:
                     continue
                 key, value = line.strip().split("=")
                 if key == "height":
-                    height = int(value)
+                    height = int(value) - 95
                 if key == "width":
-                    width = int(value)
+                    width = int(value) - 100
         return height, width
 
     def update_file(self, data: dict) -> None:

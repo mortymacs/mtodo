@@ -61,7 +61,7 @@ class Window(Gtk.Window):
         self._is_parent = is_parent
 
         # self.set_resizable(False)
-        self.set_size_request(self._width, self._height)
+        self.resize(self._width, self._height)
         self.set_position(Gtk.WindowPosition.CENTER)
         self.set_border_width(10)
         self.set_name(self._name)
