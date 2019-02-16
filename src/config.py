@@ -9,11 +9,13 @@ class Config:
     _home_dir = None
     _project_dir = ".mtodo"
     _files = {"config": "mtodo", "database": "mtodo.db"}
-    
+
     def __init__(self):
         """Initialize Config class."""
         self._home_dir = lib.home_dir()
         self._base_dir = lib.base_dir()
+        self._user_preference_file = lib.join_path(lib.join_path(self._home_dir, self._project_dir),
+                                                   self._files["config"])
 
     def __new__(cls):
         """Singletone implementation."""
@@ -36,7 +38,7 @@ class Config:
                 lib.exit_software(1)
 
         project_dir = lib.join_path(self._home_dir, self._project_dir)
-        
+
         # Check config file
         if not lib.is_exists(project_dir, self._files["config"]):
             if not lib.create_file_with_content(project_dir, self._files["config"], "style=default\ndark=false"):
@@ -54,7 +56,7 @@ class Config:
         """Return project directory path."""
         return lib.join_path(self._home_dir, self._project_dir)
 
-    @property    
+    @property
     def software_style_name(self):
         """Get software style name from config file."""
         with open(lib.join_path(self.project_dir, self._files["config"]), "r") as f:
@@ -94,3 +96,39 @@ class Config:
     def database_path(self):
         """Return database file address."""
         return lib.join_path(self.project_dir, self._files["database"])
+
+    @property
+    def height_and_width(self) -> tuple:
+        """Return height and width."""
+        height = 0
+        width = 0
+        with open(self._user_preference_file) as f:
+            for line in f:
+                if not line.strip():
+                    continue
+                key, value = line.strip().split("=")
+                if key == "height":
+                    height = int(value)
+                if key == "width":
+                    width = int(value)
+        return height, width
+
+    def update_file(self, data: dict) -> None:
+        """Update config file based on data."""
+        preferences = {}
+        with open(self._user_preference_file) as f:
+            for line in f:
+                if not line.strip():
+                    continue
+                key, value = line.strip().split("=")
+                preferences.update({key: value})
+
+        # override current key/value by new key/value
+        preferences.update(data)
+
+        str_data = ""
+        for key, value in preferences.items():
+            str_data += f"{key}={value}\n"
+
+        with open(self._user_preference_file, "w") as f:
+            f.write(str_data)

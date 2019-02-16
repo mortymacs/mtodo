@@ -10,6 +10,7 @@ from config import Config
 from action import Action
 
 DEFAULT_WIDTH = 500
+DEFAULT_HEIGHT = 400
 
 
 class Interface:
@@ -33,9 +34,13 @@ class Interface:
         is_done_btn = widget.Button("button_light", "0")
         is_done_btn.on_click(self.__action.all_items, *(self, "show"))
         self._is_done_btn = is_done_btn
-        main_window = widget.Window("Main", "MTodo", None, DEFAULT_WIDTH, 400, {add_new_btn: "left", is_done_btn: "left"}, True)
+        c_height, c_width = self.__config.height_and_width
+        height = c_height if c_height > 0 else DEFAULT_HEIGHT
+        width = c_width if c_width > 0 else DEFAULT_WIDTH
+        main_window = widget.Window("Main", "MTodo", None, width, height, {add_new_btn: "left", is_done_btn: "left"}, True)
         main_window.set_icon(self.__config.software_icon_file)
         main_window.on_resize(self.__action.reload_items, *(self, "refresh"))
+        main_window.delegate("on_resize", self._update_preferences)
         self.__windows.update({"main_window": main_window})
         add_new_btn.on_click(self.__action.add_item, *(self, "new"))
         self.refresh(main_window)
@@ -181,3 +186,17 @@ class Interface:
         if self.__config.software_is_dark_style == "true":
             settings = Gtk.Settings.get_default()
             settings.set_property("gtk-application-prefer-dark-theme", True)
+
+    def _update_preferences(self, event_name: str, related_info: dict) -> None:
+        """Update user preferences.
+
+        :param event_name: callback event name
+        :type event_name: str
+        :param related_info: event related info
+        :type related_info: dict
+
+        :return: none
+        :rtype: None
+        """
+        if event_name == "on_resize":
+            self.__config.update_file(related_info)

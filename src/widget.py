@@ -1,7 +1,8 @@
 """Todo widget library."""
-
+from typing import Callable
 from abc import ABCMeta
 import os
+
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk, Gio
@@ -42,7 +43,8 @@ class HeaderBar(Widget):
 class Window(Gtk.Window):
     """Draw window form"""
 
-    def __init__(self, name: str, title: str, subtitle: str, width: int, height: int, header_buttons: dict, is_parent: bool):
+    def __init__(self, name: str, title: str, subtitle: str, width: int,
+                 height: int, header_buttons: dict, is_parent: bool):
         """Initialize Window class"""
         super(Window, self).__init__(title=title)
         self._name = name
@@ -50,6 +52,7 @@ class Window(Gtk.Window):
         self._subtitle = subtitle
         self._width = width
         self._height = height
+        self._on_resize_callback = None
         if header_buttons:
             self._header = HeaderBar(self._title, self._subtitle, header_buttons)
             self.set_titlebar(self._header.render)
@@ -72,6 +75,19 @@ class Window(Gtk.Window):
 
         if self._is_parent:
             self.connect("delete-event", Gtk.main_quit)
+            self.connect("size_allocate", self.on_size_allocate)
+
+    def on_size_allocate(self, window, _) -> None:
+        """Connector on size-allocate event."""
+        if self._on_resize_callback:
+            self._on_resize_callback("on_resize", {
+                "height": window.get_allocated_height(),
+                "width": window.get_allocated_width()
+            })
+
+    def delegate(self, event_name: str, callback: Callable) -> None:
+        if event_name == "on_resize":
+            self._on_resize_callback = callback
 
     def on_resize(self, method, *args):
         """Call method on window resize."""
@@ -80,7 +96,7 @@ class Window(Gtk.Window):
     def set_icon(self, icon_path: str):
         """Set icon to the main window."""
         self.set_default_icon_from_file(icon_path)
-        
+
     def join(self, obj: object):
         """Add object into window"""
         if hasattr(obj, "render"):
