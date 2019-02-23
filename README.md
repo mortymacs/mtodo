@@ -39,12 +39,13 @@ In the next version, these features will be implemented:
 * Reminders
 * Integrate with other systems
 * Set priorities
-* Set color on tasks, projects and label
+* Set color (gradient theme) on tasks, projects and label
 * Markdown support
 * Comments on tasks
 * Labels and filters
 * Media support
 * GTK custom themes
+* Encrypt user data / authentication support
 
 ### Contribute
 Please create issues on Github to report bugs, send feature requests and so on. If you've developed good git commits after forking on Github, then please create pull requests in order to request a review and merge you commits.
