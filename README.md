@@ -12,6 +12,10 @@ $ mkdir /opt/mtodo/ && tar xzf v1.0.0.tar.gz -C /opt/mtodo/ --strip-components 1
 $ /opt/mtodo/bin/mtodo
 ```
 
+#### ArchLinux
+
+AUR package [mtodo](https://aur.archlinux.org/packages/mtodo/)
+
 Desktop file (save to ~/.local/share/applications/mtodo.desktop):
 
 ```
