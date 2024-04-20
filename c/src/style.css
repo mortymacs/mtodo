@@ -1,0 +1,59 @@
+button {
+    box-shadow: none;
+    text-shadow: none;
+}
+
+#button_success {
+    background: #00C64B;
+    border: 1px solid #10BF52;
+    color: #FFF;
+}
+
+#button_success:focus {
+  background: #10BF52;
+}
+
+#button_info {
+  background: #00C6B9;
+  border: 1px solid #23BBB1;
+  color: #FFF;
+}
+
+#button_info:focus {
+  background: #23BBB1;
+}
+
+#button_danger {
+  background: #D8495F;
+  border: 1px solid #C85465;
+  color: #FFF;
+}
+
+#button_danger:focus {
+  background: #C85465;
+}
+
+#textarea_normal {
+  border:1px solid #333;
+}
+
+#alert_normal {
+  padding: 10px;
+  border:2px solid #D7D7D7;
+}
+
+#todo_item_normal {
+    background: #F4F4F4;
+    border: 1px solid #D8D8D8;
+}
+
+#todo_item_is_done {
+  background: #E5E5E5;
+  color: #A0A0A0;
+  border: 1px solid #E0E0E0;
+}
+
+#todo_item_is_important {
+  background: #CCFF00;
+  border: 1px solid #BBE31D;
+}
