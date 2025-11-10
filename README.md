@@ -1,3 +1,8 @@
+> ⚠️ **This project has moved!**
+>
+> This repository is no longer maintained. The project has been moved to **[https://git.sr.ht/~mortymacs/mtodo](https://git.sr.ht/~mortymacs/mtodo)**.
+> Please update your bookmarks and clone the new repository for the latest updates.
+
 <div align="center">
      <p style="text-align:center"><h2>MTodo</h2></p>
      <p style="text-align:center">Simple Todo Software For GNU/Linux</p>
