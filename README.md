@@ -1,6 +1,6 @@
 > ⚠️ **This project has moved!**
 >
-> This repository is no longer maintained. The project has been moved to **[https://git.sr.ht/~mortymacs/mtodo](https://git.sr.ht/~mortymacs/mtodo)**.
+> This repository is no longer maintained. The project has been moved to **[https://codeberg.org/mortymacs/emruz](https://codeberg.org/mortymacs/emruz)**.
 > Please update your bookmarks and clone the new repository for the latest updates.
 
 <div align="center">
